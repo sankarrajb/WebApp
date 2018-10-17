@@ -298,4 +298,32 @@
 			</plugin>
 		</plugins>
 	</build>
+	<!-- Added  for Nexus Repo -->
+	  <distributionManagement>
+        <repository>
+            <id>deployment</id>
+            <name>Internal Releases</name>
+            <url>http://192.168.33.33:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>deployment</id>
+            <name>Internal Snapshot Releases</name>
+            <url>http://192.168.33.33:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+	
+	<profiles>
+        <profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <!-- Optional URL to server. Default value is http://localhost:9000 -->
+                <sonar.host.url>
+                  http://192.168.33.34:9000
+                </sonar.host.url>
+            </properties>
+        </profile>
+     </profiles>
 </project>
